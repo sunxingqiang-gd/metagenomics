@@ -1,6 +1,6 @@
 # The tools of assembly human gut metagenomics
 
-根据[arxiv](https://arxiv.org/)上的一篇文章 [metaSPAdes: a new versatile metagenomics assembler](https://arxiv.org/ftp/arxiv/papers/1604/1604.03071.pdf)，对于目前的metagenomics的组装软件进行调研，调研的内容包括，**所用数据集**,**软件的安装环境**,**运行所需要的内存**,**运行所需要的cpu数目**,**以及准确度的问题**。这篇paper
+根据[arxiv](https://arxiv.org/)上的一篇文章 [metaSPAdes: a new versatile metagenomics assembler](https://arxiv.org/ftp/arxiv/papers/1604/1604.03071.pdf)，对于目前的metagenomics的组装软件进行调研，调研的内容包括，**所用数据集**,**软件的安装环境**,**运行所需要的内存**,**运行所需要的cpu数目**,**以及准确度的问题**.
 
 ### 主要比较的软件是：
 [metaSPAdes](https://arxiv.org/ftp/arxiv/papers/1604/1604.03071.pdf), [MEGAHIT](https://github.com/voutcn/megahit), [IDBA-UD](http://i.cs.hku.hk/~alse/hkubrg/projects/idba_ud/),IDBA-UD的[GitHub链接](https://github.com/loneknightpy/idba) and [Ray-Meta]()
@@ -26,7 +26,7 @@ HMP （It contains 75 million Illumina HiSeq 95 bp paired-end reads with mean in
 -  组装结果比较
  
 contigs(>1k) \ software |metaSPAdes    |  MEGAHIT	| IDBA-UD| Ray-Meta | 
------------- | ------------- | ------------|--------|   
+------------ | ------------- | ------------|--------|------|
 10 | **3.9M**           	| 3M   |   3.4M  |        2.4M        |
 100| **35.4M** 	            |26.5M |29M		  |33.4M|
 ALL| 73.4M 		        |74.4M |**77.3M**|68.2M|
@@ -42,7 +42,7 @@ ___
 -  组装的contig的基因预测结果
 
 dataset/ assembler | metaSPAdes    |  MEGAHIT	| IDBA-UD| Ray-Meta |
------------- | ------------- | ------------|--------|  
+------------ | ------------- | ------------|--------|------|
 HMP | **28.4k (38.9M)**  	| 26.5K (34.8M) | 27.8K (36.8M) |   27.5 (37.5M)     |
 
 **Tab-2** Number (in thousands) and total length (in Mb) of predicted genes longer than 800 nt for all datasets and all assemblers.
