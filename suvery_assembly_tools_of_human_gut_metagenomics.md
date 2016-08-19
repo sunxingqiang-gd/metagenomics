@@ -55,7 +55,7 @@ HMP | **28.4k (38.9M)**  	| 26.5K (34.8M) | 27.8K (36.8M) |   27.5 (37.5M)     |
 
  
  Fraction/ assembler | metaSPAdes    |  MEGAHIT| IDBA-UD| Ray-Meta |
------------- | ------------- | ------------|--------|  
+------------ | ------------- | ------------|--------|----|  
 Fraction of aligned **single** reads| **55.61%**  	| 44.62% | 48.98% |   **57.51%**     |
 Fraction of aligned **paired** reads(unique)| **48.48%** | 30.23% |35.80% | 34.14%   |
 Fraction of aligned **paired** reads(non-unique)| **4.94%**  | 11.25% | 9.06% |   22.08%  |
@@ -72,7 +72,7 @@ Fraction of aligned **paired** reads(non-unique)| **4.94%**  | 11.25% | 9.06% | 
 在本次测评中每一个软件都设定为16个cpus进行测评。
 
 dataset/ assembler | metaSPAdes    |  MEGAHIT	| IDBA-UD| Ray-Meta |
------------- | ------------- | ------------|--------|  
+------------ | ------------- | ------------|--------|----|  
 HMP（run time） | 4h 51m | **1h 26m** | 4h 49m |   5h 59m     |
 HMP（memory G） | 21.7G | **7.3G** | 234.5G |   26.9G     |
 
