@@ -1,11 +1,11 @@
 
 
-|software|reads_num|data_size(Mbp)|cpu_num|memery(G)|time(m)|sample|
-|---|---|---|---|---|---|---|
-|spades_meta|51551080|9794|8|30|154|SRR061695|
-|spades_meta|50989968|9688|8|30|210|SRR061694|
-|MEGA-HIT|50989968|9688|12|44G|58|SRR061694|
-|MEGA-HIT|51551080|9794|16|31G|42|SRR061695|
+|software|reads_num|data_size(Mbp)|cpu_num|memery(G)|time(m)|sample|pedding_time(min)|
+|---|---|---|---|---|---|---|---|
+|spades_meta|51551080|9794|8|30|154|SRR061695|64|
+|spades_meta|50989968|9688|8|30|210|SRR061694|1|
+|MEGA-HIT|50989968|9688|12|44G|58|SRR061694|320|
+|MEGA-HIT|51551080|9794|16|31G|42|SRR061695|41|
 
 
 
