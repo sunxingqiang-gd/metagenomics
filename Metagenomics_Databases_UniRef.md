@@ -17,6 +17,7 @@ UniParc是？
 >
 
 Unlike in UniParc, sequence fragments are merged in UniRef: The UniRef100 database combines identical sequences and sub-fragments with **11 or more residues from any organism into a single UniRef entry**, displaying the sequence of a representative protein, the accession numbers of all the merged entries and links to the corresponding UniProtKB and UniParc records.
+
 ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref100/uniref100.fasta.gz
 不同的数字表明不同的标准。序列合并，记录保留，类似于NR库的表头
 
@@ -26,11 +27,13 @@ UniRef90 is built by clustering UniRef100 sequences with **11 or more residues u
 UniRef90是基于UniRef100 使用喜闻乐见的CD-HIT进行聚类， 90是指90%的相似性并且要80% overlap最长的序列。seed序列应该是cluster的最长序列。
 
 ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz
+
 >
 Similarly, UniRef50 is built by clustering UniRef90 seed sequences that have at least 50% sequence identity to and 80% overlap with the longest sequence in the cluster. *Prior to 2013 there was no overlap threshold, so clusters were more heterogeneous in length. UniRef90 and UniRef50 yield a database size reduction of approximately 58% and 79%, respectively, providing for significantly faster sequence similarity searches.* The seed sequences are the longest members of the cluster. However, the longest sequence is not always the most informative. There is often more biologically relevant information (name, function, cross-references) available on other cluster members. 
 
 注意 UniRef50是基于UniRef90的 **seed 序列**  50%以上的序列，80%的overlap,斜体字不懂
 ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz
+
 >
 All the proteins in a cluster are therefore ranked as follows to facilitate the selection of a biologically relevant representative for the cluster:
 - **quality of the entry:** manually reviewed entries (from the UniProtKB/Swiss-Prot section) are preferred
