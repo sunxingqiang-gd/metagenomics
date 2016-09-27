@@ -63,8 +63,10 @@ UniRef90 cluster titles and identifiers are derived from the representative UniR
 
 
 http://www.uniprot.org/help/uniref
+
 http://nohup.cc/article/85/
-http://huttenhower.sph.harvard.edu/humann2
+
+[humann2](http://huttenhower.sph.harvard.edu/humann2) http://huttenhower.sph.harvard.edu/humann2
 
 ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz
 
