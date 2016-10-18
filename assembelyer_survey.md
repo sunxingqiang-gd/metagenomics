@@ -51,6 +51,7 @@
 
 
 
+微健康基因数据测试结果
 |software|reads_num|data_size(Mbp)|cpu_num|memery(G)|diku_time(m)|sample|waiting_time(min)|task_id|
 |---|---|---|---|---|---|---|---|---|
 |MEGAHIT|66,255,672|13,251|16|56|73|SRR1535379|11|57fdab5e534680000151cd5f|
