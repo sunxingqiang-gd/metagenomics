@@ -6,7 +6,7 @@ author: GeneDock-基因数据工程师-孙兴强
 
 <p class="author-title">(本文由[GeneDock](https://genedock.com) 基因数据工程师-孙兴强撰写，[点击可查看原文](http://blog.chengjianhua.cn/2016/10/25/first-internship-experience/?from=groupmessage&isappinstalled=0)。转载请保留作者信息和原文链接)</p>
 </p>
-<span style="font-size:16px">就在上个礼拜我结束了在北京的前端工程师实习回到了学校，现在正在学校休整中。在实习的这段时间内忙于各种事情也没有再写过一篇博客了，然而一个想成为优秀程序员的我怎么能放弃这样的自我总结机会呢！于是乎现在先写下过去这三个月的暑期实习的感受，从而也让自己清楚一下自己所处的状态。</span>
+<span style="font-size:16px">前言：BLAST作为生物信息最重要的局部比对工具，在序列物种注释和基因注释起重要作用。其中BLASTX(将query序列翻译成氨基酸序列和蛋白数据库进行比对)常常作为基于相似性比对的基因注释。由于BLASTX先要将DNA序列按照6个读码框翻译成氨基酸序列，从而BLASTX的比对时间和需要计算资源都是比较大的，如何降低运行时间和降低运算成本，成为生信工作人员比较重要日常工作。</span>
 </p>
 <!-- more -->
 <span style="font-size:20px"><strong>在北京的日子</strong></span>
