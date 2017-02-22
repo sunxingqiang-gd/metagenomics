@@ -13,7 +13,19 @@ author: GeneDock-基因数据工程师-孙兴强
 <span style="font-size:20px"><strong>一个和谐轻松的环境</strong></span>
 <span style="font-size:16px">1. 使用ncbi-blast+工具。 从2008年开始，ncbi开放ncbi-blast+软件包。之前的老版本的blastall只维护到2**年。之前blastx工具是属于blastall里面的一个子命令，blast+软件包将blastn，blastp和blastx单独拆分出来，计算速度有了很大的提升。具体测试结果可以看ncbi-blastx的manual。</span>
 
-<span style="font-size:16px; line-height: 1.8;">2. 使用blastx-fast模式。 ncbi-blast+软件包对blastx-fast模式介绍比较少，没有详细说明fast模式用了什么参数或者算法，本人的猜想可能是做了贪婪算法，比如增大word-size参数值等。值得注意的是，作为核酸注释使用广泛的blast2go软件包，在进行序列注释的blastx参数使用 -p blastx-fast。本人也是用一些数据进行了测试。ncbi-blast+版本： ncbi-blast+ 2.4.0 query数据：通过MEGAHIT对双端测序数据组装的contigs核酸序列（）。database：从NR库截取**条蛋白序列。所用机器类型：阿里云普通实例（8cpu和16G内存）。为了比较blastx普通模式和blastx-fast模式，运行参数分别为：-num_threads 4  -max_target_seqs 5 -evalue 0.00001 -outfmt 5   -task  blastx 和 -num_threads 4  -max_target_seqs 5 -evalue 0.00001 -outfmt 5 -task  blastx-fast 。数据的运行时间，如下表所示：</span>
+<span style="font-size:16px; line-height: 1.8;">2. 使用blastx-fast模式。 ncbi-blast+软件包对blastx-fast模式介绍比较少，没有详细说明fast模式用了什么参数或者算法，本人的猜想可能是做了贪婪算法，比如增大word-size参数值等。值得注意的是，作为核酸注释使用广泛的blast2go软件包，在进行序列注释的blastx参数使用 -p blastx-fast。本人也是用一些数据进行了测试。ncbi-blast+版本： ncbi-blast+ 2.4.0 query数据：通过MEGAHIT软件对双端测序数据，进行组装的全部contigs核酸序列和截取的其中10000条contigs的核酸序列（final.contigs.fa和final.contigs.10000.fa）,数据详情见下表 *** 。database：从NR库截取100,000条蛋白序列（NR_100000.fa）,数据库详情见下表 ***。所用机器类型：阿里云普通实例（8cpu和16G内存）。为了比较blastx普通模式和blastx-fast模式，运行参数分别为：-num_threads 4  -max_target_seqs 5 -evalue 0.00001 -outfmt 5 -task  blastx 和 -num_threads 4  -max_target_seqs 5 -evalue 0.00001 -outfmt 5 -task  blastx-fast 。数据的运行时间，如下表***所示：从运行时间来看，blastx-fast 大约为blastx的 1/3（基因组组装结果的核酸序列比RNA denovo组装出的核酸序列要长很多，所以消耗时间也相应延长一些）。根据多次的经验来看，blastx-fast的运行时间大约是blastx的1/4~1/3。
+一致性比较如下表 *** 
+从运行结果来看，发现 blastx-fast模式的结果，基本上属于 blastx结果的子集。在14万条查询序列也能保持很高的一致性。
+按照blastx的原理上的差别，这个blastx-fast最大的缺点就是可能漏一些结果，漏掉的比例在 5%左右。漏掉的结果可能是假阳性或者真阳性。
+
+blast2go在其官网一些case使用的是blastx-fast模式。
+官方帮助文档也是使用blastx-fast
+https://www.blast2go.com/images/b2g_pdfs/blast2go_cli_manual.pdf
+参考第10页
+
+
+所示。
+</span>
 </p>
 <span style="font-size:20px"><strong>时刻警惕舒适区</strong></span>
 <span style="font-size:16px">3. 充分利用cpu并行任务。对于ecs这种机子，如果能充分榨干计算资源，一方面减少运行时间，另一方面减少计算花费。当一条query在和database比对的时候，可能只占了部分内存和部分cpu，如果能在申请的实例，在保证多个任务不会带来太大的IO和线程切换问题，可以尝试尽量多并行几个任务。观察单个任务的cpu和内存的使用状态，发现虽然blastx设置的cpu为8个，但是实际使用的却只有200%，空闲600%的cpu。</span>
