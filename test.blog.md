@@ -13,10 +13,10 @@ author: GeneDock-基因数据工程师-孙兴强
 <span style="font-size:20px"><strong>一个和谐轻松的环境</strong></span>
 <span style="font-size:16px">1. 使用ncbi-blast+工具。 从2008年开始，ncbi开放ncbi-blast+软件包。之前的老版本的blastall只维护到2**年。之前blastx工具是属于blastall里面的一个子命令，blast+软件包将blastn，blastp和blastx单独拆分出来，计算速度有了很大的提升。具体测试结果可以看ncbi-blastx的manual。</span>
 
-<span style="font-size:16px; line-height: 1.8;">2. 使用blastx-fast模式。 ncbi-blast+软件包对blastx-fast模式介绍比较少，没有详细说明fast模式用了什么参数或者算法，本人的猜想可能是做了贪婪算法，比如增大word-size参数值等。值得注意的是，作为核酸注释使用广泛的blast2go软件包，在进行序列注释的blastx参数使用 -p blastx-fast。</span>
+<span style="font-size:16px; line-height: 1.8;">2. 使用blastx-fast模式。 ncbi-blast+软件包对blastx-fast模式介绍比较少，没有详细说明fast模式用了什么参数或者算法，本人的猜想可能是做了贪婪算法，比如增大word-size参数值等。值得注意的是，作为核酸注释使用广泛的blast2go软件包，在进行序列注释的blastx参数使用 -p blastx-fast。本人也是用一些数据进行了测试。query数据：通过MEGAHIT对双端测序数据组装的contigs核酸序列。database：从NR库截取**条蛋白序列。所用机器类型：阿里云普通实例（8cpu和16G内存）。运行参数：-p blastx 。数据的运行时间，如下表所示：</span>
 </p>
 <span style="font-size:20px"><strong>时刻警惕舒适区</strong></span>
-<span style="font-size:16px">也因为我来公司之前就曾经自学过一段时间的 react 并且写出了一个简单的项目，所以我来了之后基本没有多少学习成本就开始直接上手工作了。一开始重构还能遇到很多的问题，但是随着重构继续进行，之后已经感觉到自己已经开始习惯了这样的方式重构代码了，就像写业务代码一样，没有新的挑战，就是按照一定的套路来实现。开始的过程中确实学到了不少，熟悉了 redux 和 react 的搭配使用，immutable 的常用用法以及对 JavaScript 本身的了解及使用技巧。后来我已经感觉到自己停留在舒适区没有过多进取，好吧，自己给自己找事。</span>
+<span style="font-size:16px">3. 充分利用cpu并行任务。对于ecs这种机子，如果能充分榨干计算资源，一方面减少运行时间，另一方面减少计算花费。当一条query在和database比对的时候，可能只占了部分内存和部分cpu，如果能在申请的实例，在保证多个任务不会带来太大的IO和线程切换问题，可以尝试尽量多并行几个任务。观察单个任务的cpu和内存的使用状态，发现虽然blastx设置的cpu为8个，但是实际使用的却只有200%，空闲600%的cpu。</span>
 
 <span style="font-size:16px; line-height: 1.8;">公司因为老架构的原因，没有整套上 webpack，还用着 gulp 处理 python 的 jinja2 模板。webpack 的配置也只是简单的打包，如果每次更改了 .jsx 组件代码之后，只要重新编译打包整个项目才能看到效果，想当初我自己写项目的时候用着的可是完善的热更新啊！好吧，那我就来搭建一套热更新的开发环境吧，经过几天的查找资料与学习，我搭建出来了一个简单的开发环境已经对应的生产环境配置。对编译打包做了些优化。此时没哟热更新（hmr）但是可以增量编译及自动刷新界面，经过一段时间的使用，leader 同意了我的代码提交并大家都开始使用这个开发环境。后来我进一步完善了这个配置，可以支持 hmr、source-map、hash 缓存方案…… 也是因为对自己的追求，最后说服 leader 我自己基于对一个开源框架 bootstrap-table 源码的阅读，开发了一个完全适用与我们公司定制的 DataTable 组件，这种类似造轮子的体验给我的体会就是：人嘛，要有追求一些，不能习惯于舒适的现状，要给自己多找机会（麻烦）学习！</span>
 </p>
